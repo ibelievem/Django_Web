@@ -11,4 +11,3 @@ pytz==2019.1
 redis==3.2.1
 sqlparse==0.3.0
 Whoosh==2.7.4
-mysqlclient==1.4.2.post1
