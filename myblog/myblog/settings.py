@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'comments',
     # 需要使用到第三方的静态资源 必须注册应用
     'tinymce',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,24 @@ DEFAULT_FROM_EMAIL = 'zzy0371 <18137128152@163.com>'
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
+
+
+#配置hasystack使用whoosh引擎
+HAYSTACK_CONNECTIONS = {
+'default': {
+'ENGINE': 'blog.whoosh_cn_backend.WhooshEngine',
+'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+}
+}
+
+
+# 每页显示10个结果
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+
+#索引实时更新
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+
+
+
+
